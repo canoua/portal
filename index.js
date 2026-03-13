@@ -1,12 +1,18 @@
-import { createServer } from 'node:http';
+import express from 'express';
+import { config } from 'dotenv';
+import router from './source/controllers/router.js';
 
-const port = 8001;
+config();
 
-const server = createServer();
+const port = process.env.PORT || 8002;
+const app = express();
 
-server.on('request', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-  res.end('portal')
-})
+// для использования переменно из .env в хэдере
+app.locals.appTitle = process.env.APPTITLE || 'Express';
 
-server.listen(port)
+// для использования ejs
+app.set('view engine', 'ejs');
+app.set('views', './source/templates');
+
+app.use('/', router);
+app.listen(port);
