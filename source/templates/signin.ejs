@@ -7,11 +7,26 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <a href="/">назад</a>
-    <form action="">
-      <input type="text" placeholder="email" />
-      <input type="password" placeholder="password" />
-      <input type="submit" />
-    </form>
+    <div class="header">
+      <div class="container">
+        <div class="header-inner">
+          <a href="/">Главная</a>
+          <div class="links">
+            <a href="/signin">Вход</a>
+            <a href="/signup">Регистрация</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main>
+      <div class="container">
+        <form class="form" action="">
+          <h1 class="form-title">Вход</h1>
+          <input class="form-input" type="text" placeholder="email" />
+          <input class="form-input" type="password" placeholder="password" />
+          <input class="form-submit" type="submit" value="войти"/>
+        </form>
+      </div>
+    </main>
   </body>
 </html>
