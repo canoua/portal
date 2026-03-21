@@ -7,7 +7,7 @@ config();
 const port = process.env.PORT || 8002;
 const app = express();
 
-// для использования переменно из .env в хэдере
+// для использования переменной из .env в хэдере
 app.locals.appTitle = process.env.APPTITLE || "Express";
 
 // для стилей
