@@ -1,8 +1,6 @@
 <%- include('includes/header.ejs') %>
-<!-- <h1>Регистрация</h1> -->
 <form class="form" action="/register" method="post">
   <h1 class="form-title">Регистрация</h1>
-  <!-- <label>Имя</label> -->
   <input
     class="form-input"
     placeholder="Имя"
@@ -10,7 +8,6 @@
     value="<%= body.username || '' %>"
   />
 
-  <!-- <label>Пароль</label> -->
   <input
     class="form-input"
     placeholder="Пароль"
@@ -19,7 +16,6 @@
     value="<%= body.password || '' %>"
   />
 
-  <!-- <label>Повтор пароля</label> -->
   <input
     class="form-input"
     placeholder="Повтор пароля"

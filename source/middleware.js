@@ -1,4 +1,5 @@
-import { matchedData, validationResult } from 'express-validator';
+import { matchedData, validationResult } from "express-validator";
+// import { User } from "./models/__loaddatabase.js";
 
 export function requestToContext(req, res, next) {
   res.locals.req = req;
@@ -10,11 +11,11 @@ export async function handleErrors(req, res, next) {
   if (!r.isEmpty() || req.errorObj) {
     const t = {
       ...r.mapped(),
-      ...req.errorObj
+      ...req.errorObj,
     };
-    await req.flash('errors', t);
-    await req.flash('body', req.body);
-    res.redirect('back');
+    await req.flash("errors", t);
+    await req.flash("body", req.body);
+    res.redirect("back");
   } else {
     req.body = matchedData(req);
     next();
@@ -22,16 +23,16 @@ export async function handleErrors(req, res, next) {
 }
 
 export async function getErrors(req, res, next) {
-  res.locals.errors = await req.getFlash('errors') || {};
-  res.locals.body = await req.getFlash('body') || {};
+  res.locals.errors = (await req.getFlash("errors")) || {};
+  res.locals.body = (await req.getFlash("body")) || {};
   next();
 }
 
 export function extendFlashAPI(req, res, next) {
-  req.getFlash = async function(name) {
+  req.getFlash = async function (name) {
     const d = await this.consumeFlash(name);
     return d.length > 0 ? d[0] : undefined;
-  }
+  };
   next();
 }
 
@@ -41,15 +42,23 @@ export function loadCurrentUser(req, res, next) {
 }
 
 export function isGuest(req, res, next) {
-  if (req.user)
-    res.redirect('/');
-  else  
-    next();
+  if (req.user) res.redirect("/");
+  else next();
 }
 
+// export async function getAllUsers(req, res) {
+//   try {
+//     const users = await User.find({}, "username"); // выбираем нужные поля
+
+//     // Передаем пользователей в шаблон
+//     res.render("users", { users });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).send("Ошибка сервера");
+//   }
+// }
+
 export function isLoggedIn(req, res, next) {
-  if (req.user)
-    next();
-  else
-    res.redirect('/login');
+  if (req.user) next();
+  else res.redirect("/login");
 }

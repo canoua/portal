@@ -1,0 +1,4 @@
+Вывод данных из бд с помощью консоли
+- mongosh
+- use works
+- show collections

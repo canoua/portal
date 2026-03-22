@@ -6,6 +6,10 @@ export function registerPage(req, res) {
   res.render("register", { title: "Регистрация" });
 }
 
+// export function allUsers(req, res) {
+//   res.render("users", { title: "все пользователи" });
+// }
+
 export async function register(req, res) {
   const salt = randomBytes(16);
   const hash = await pbkdf2Promisified(

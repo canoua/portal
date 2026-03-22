@@ -13,7 +13,7 @@ import {
   login,
   logout,
 } from "./controllers/users.js";
-import { mainPage } from "./controllers/todos.js";
+import { mainPage } from "./controllers/works.js";
 import {
   requestToContext,
   handleErrors,
@@ -22,6 +22,7 @@ import {
   loadCurrentUser,
   isGuest,
   isLoggedIn,
+  // getAllUsers,
 } from "./middleware.js";
 import { registerV, loginV } from "./validators.js";
 import { mainErrorHandler, error500Handler } from "./error-handlers.js";
@@ -74,6 +75,8 @@ router.post("/logout", logout);
 
 router.get("/", mainPage);
 router.use(mainErrorHandler, error500Handler);
+
+// router.get("/users", getAllUsers);
 
 router.use(flash({ sessionKeyName: "flash-message" }));
 router.use(extendFlashAPI);
