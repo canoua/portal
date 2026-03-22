@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | <%= appTitle %></title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+      <div class="header">
+        <div class="container">
+          <div class="header-inner">
+            <a href="/">Главная</a>
+            <div class="menu">
+              <% if (req.user) { %>
+              <form action="/logout" method="post">
+                <input type="submit" value="выйти">
+              </form>
+              <% } else { %>
+              <a href="/register/">Регистрация</a>
+              <a href="/login/">Вход</a>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="container">
+      <nav class="navigation">
+        <% if (req.user) { %>
+        <a href="/">
+          <span>< Список дел</span>
+        </a>
+        <% } %>
+
+      </nav>
+    </div>
+

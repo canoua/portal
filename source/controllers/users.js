@@ -1,6 +1,6 @@
 import { randomBytes } from "node:crypto";
-import { pbkdf2Promisified } from "../utility";
-import { addUser } from "../models/users";
+import { pbkdf2Promisified } from "../utility.js";
+import { addUser } from "../models/users.js";
 
 export function registerPage(req, res) {
   res.render("register", { title: "Регистрация" });

@@ -1,4 +1,4 @@
-import { User } from "./__loaddatabase";
+import { User } from "./__loaddatabase.js";
 
 export async function getUser(name) {
   return await User.findOne({ username: name });

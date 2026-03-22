@@ -1,0 +1,19 @@
+<%- include('includes/header.ejs') %>
+<form class="form" action="/login" method="post">
+  <h1 class="form-title">Вход</h1>
+  <input
+    class="form-input"
+    placeholder="Имя"
+    name="username"
+    value="<%= body.username || '' %>"
+  />
+  <input
+    class="form-input"
+    placeholder="Пароль"
+    name="password"
+    type="password"
+    value="<%= body.password || '' %>"
+  />
+  <input class="form-submit" type="submit" value="войти" />
+</form>
+<%- include('includes/footer.ejs') %>

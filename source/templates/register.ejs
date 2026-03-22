@@ -1,0 +1,33 @@
+<%- include('includes/header.ejs') %>
+<!-- <h1>Регистрация</h1> -->
+<form class="form" action="/register" method="post">
+  <h1 class="form-title">Регистрация</h1>
+  <!-- <label>Имя</label> -->
+  <input
+    class="form-input"
+    placeholder="Имя"
+    name="username"
+    value="<%= body.username || '' %>"
+  />
+
+  <!-- <label>Пароль</label> -->
+  <input
+    class="form-input"
+    placeholder="Пароль"
+    name="password"
+    type="password"
+    value="<%= body.password || '' %>"
+  />
+
+  <!-- <label>Повтор пароля</label> -->
+  <input
+    class="form-input"
+    placeholder="Повтор пароля"
+    name="password2"
+    type="password"
+    value="<%= body.password2 || '' %>"
+  />
+
+  <input class="form-submit" type="submit" value="зарегистрировать" />
+</form>
+<%- include('includes/footer.ejs') %>
