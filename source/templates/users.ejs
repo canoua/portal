@@ -1,0 +1,11 @@
+<h1>Все пользователи</h1>
+<ul>
+  <a href="/">назад</a>
+  <% users.forEach(user => { %>
+    <li>
+      <%= user.username %> 
+      <button>удалить</button>
+      <button>назначить роль</button>
+    </li>
+  <% }) %>
+</ul>

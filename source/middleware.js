@@ -1,5 +1,5 @@
 import { matchedData, validationResult } from "express-validator";
-// import { User } from "./models/__loaddatabase.js";
+import { User } from "./models/__loaddatabase.js";
 
 export function requestToContext(req, res, next) {
   res.locals.req = req;
@@ -46,17 +46,15 @@ export function isGuest(req, res, next) {
   else next();
 }
 
-// export async function getAllUsers(req, res) {
-//   try {
-//     const users = await User.find({}, "username"); // выбираем нужные поля
-
-//     // Передаем пользователей в шаблон
-//     res.render("users", { users });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).send("Ошибка сервера");
-//   }
-// }
+export async function getAllUsers(req, res) {
+  try {
+    const users = await User.find({}, "username");
+    res.render("users", { users });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Ошибка сервера");
+  }
+}
 
 export function isLoggedIn(req, res, next) {
   if (req.user) next();

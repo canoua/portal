@@ -1,7 +1,9 @@
 <%- include('includes/header.ejs') %>
 
 <div class="container">
-  <span>Добро пожаловать <%= req.user.name %></span>
+  <span>Добро пожаловать, <%= req.user.name %></span>
+  <br />
+  <a href="/users">Все пользователи</a>
 </div>
 
 <%- include('includes/footer.ejs') %>

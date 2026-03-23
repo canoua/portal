@@ -22,7 +22,7 @@ import {
   loadCurrentUser,
   isGuest,
   isLoggedIn,
-  // getAllUsers,
+  getAllUsers,
 } from "./middleware.js";
 import { registerV, loginV } from "./validators.js";
 import { mainErrorHandler, error500Handler } from "./error-handlers.js";
@@ -76,10 +76,10 @@ router.post("/logout", logout);
 router.get("/", mainPage);
 router.use(mainErrorHandler, error500Handler);
 
-// router.get("/users", getAllUsers);
-
 router.use(flash({ sessionKeyName: "flash-message" }));
 router.use(extendFlashAPI);
+
+router.get("/users", getAllUsers);
 
 exp.use(express.static("public"));
 
