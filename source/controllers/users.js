@@ -40,7 +40,7 @@ export function login(req, res, next) {
       };
       req.session.save((err) => {
         if (err) next(err);
-        else res.redirect("/main");
+        else res.redirect("/");
       });
     }
   });
