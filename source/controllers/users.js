@@ -1,6 +1,7 @@
 import { randomBytes } from "node:crypto";
 import { pbkdf2Promisified } from "../utility.js";
 import { addUser } from "../models/users.js";
+import { title } from "node:process";
 
 export function registerPage(req, res) {
   res.render("register", { title: "Регистрация" });
@@ -39,7 +40,7 @@ export function login(req, res, next) {
       };
       req.session.save((err) => {
         if (err) next(err);
-        else res.redirect("/");
+        else res.redirect("/main");
       });
     }
   });
@@ -56,4 +57,12 @@ export function logout(req, res, next) {
       });
     }
   });
+}
+
+export function resourcePage(req, res) {
+  res.render("resource", { title: "Образовательный ресурс" });
+}
+
+export function mainInfoPage(req, res) {
+  res.render("maininfo", { title: "Главная" });
 }

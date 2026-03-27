@@ -12,6 +12,8 @@ import {
   loginPage,
   login,
   logout,
+  resourcePage,
+  mainInfoPage,
 } from "./controllers/users.js";
 import { mainPage } from "./controllers/works.js";
 import {
@@ -73,11 +75,15 @@ router.use(isLoggedIn);
 
 router.post("/logout", logout);
 
-router.get("/", mainPage);
+router.get("/main", mainPage);
+
+router.get("/maininfo", mainInfoPage);
 router.use(mainErrorHandler, error500Handler);
 
 router.use(flash({ sessionKeyName: "flash-message" }));
 router.use(extendFlashAPI);
+
+router.use("/resource", resourcePage);
 
 router.get("/users", getAllUsers);
 

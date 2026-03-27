@@ -11,7 +11,7 @@ const scUser = new Schema(
     },
     password: Buffer,
     salt: Buffer,
-    role: String,
+    role: { type: String, default: "user" },
   },
   {
     versionKey: false,

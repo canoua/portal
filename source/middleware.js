@@ -58,5 +58,5 @@ export async function getAllUsers(req, res) {
 
 export function isLoggedIn(req, res, next) {
   if (req.user) next();
-  else res.redirect("/login");
+  else res.redirect("/");
 }
