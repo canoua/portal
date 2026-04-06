@@ -77,7 +77,7 @@ router.post("/logout", logout);
 
 router.get("/", mainPage);
 
-// router.get("/maininfo", mainInfoPage);
+router.get("/maininfo", mainInfoPage);
 router.use(mainErrorHandler, error500Handler);
 
 router.use(flash({ sessionKeyName: "flash-message" }));
